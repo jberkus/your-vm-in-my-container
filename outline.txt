@@ -32,3 +32,5 @@ Kata Containers
   What will change in Kata
 
 Conclusion
+  contact us
+  demo materials
