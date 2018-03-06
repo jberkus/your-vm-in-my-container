@@ -1,0 +1,34 @@
+
+Introduction
+
+Why?
+  VMs-in-containers vs Containers-in-VMs
+  large VM-based infrastructures, dev workflows
+    not going away overnight
+  VMs vs. containers
+    VMs: more secure, HW assistance, resource pegging
+    Containers: faster, smaller, but shared
+    The security issue, particularly
+      "picket fencing"
+    Also resources, DB example
+  The two basic use cases
+    migration vs. security
+
+KubeVirt
+  Why?
+    Transition to Kubernetes from VM infra stepwise.
+    Use Kube to manage legacy VM apps
+      Some of which require non-Linux OS,
+      or specific Virt HW config
+    Demo
+
+Kata Containers
+  Why?
+    Container workflow with VM security
+    General arch to do this
+  Clear Containers vs. Kata
+  Demo
+    of CC
+  What will change in Kata
+
+Conclusion
