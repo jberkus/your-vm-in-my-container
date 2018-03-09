@@ -2,6 +2,10 @@
 Introduction
 
 Why?
+  Brief kube intro
+    containers are awesome
+    containers in prod = you need multi-node orchestration
+    kubernetes is great for this
   VMs-in-containers vs Containers-in-VMs
   large VM-based infrastructures, dev workflows
     not going away overnight
@@ -20,6 +24,15 @@ KubeVirt
     Use Kube to manage legacy VM apps
       Some of which require non-Linux OS,
       or specific Virt HW config
+    KubeVirt basic anatomy
+      Custom Resource Definitions
+      virt-controller
+      virt-handler
+      virt-launcher
+        libvirtd
+      storage
+      networking
+      KubeVirt VM lifecycle
     Demo
 
 Kata Containers
