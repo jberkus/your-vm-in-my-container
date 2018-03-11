@@ -227,8 +227,8 @@ networking
 
 1. Kubernetes calls CRI
 2. CRI calls CRI-O
-3. CRI-O calls cc-runtime
-4. cc-runtime starts mini-VM
+3. CRI-O calls kata-runtime
+4. kata-runtime starts QEMU mini-VM
 5. mini-VM runs Kube pod
 
 ---
