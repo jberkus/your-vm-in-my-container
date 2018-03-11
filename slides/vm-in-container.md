@@ -3,8 +3,8 @@ background-image: url(choc1.jpg)
 #### You Got Your VM<br />In My Container
 
 .sigblock[
-Josh Berkus<br />
 Jason Brooks<br />
+Josh Berkus<br />
 Red Hat OSAS<br />
 SCALE 16x
 ]
@@ -13,7 +13,32 @@ SCALE 16x
 
 ---
 
-# VMs-in-containers
+![Spy vs Spy](spyvsspy.jpg)
+
+### VM vs Container
+
+---
+
+
+![magnum diagram](magnum.jpg)
+
+### Containers-in-VMs
+
+---
+
+![docker on AWS](dockeronaws.jpg)
+
+---
+
+![vm-in-container-diagram](vm-in-container.png)
+
+### VMs-in-containers
+
+---
+
+![kubernetes logo](kube.png)
+
+### VMs-on-Kubernetes
 
 ---
 
@@ -27,7 +52,7 @@ They require infra like shared storage, and HA management services
 
 ---
 
-My Lab: 
+My Lab:
 
 Hyper-Converged oVirt + Gluster
 
@@ -43,13 +68,13 @@ background-image: url(kube-wheel.png)
 
 ---
 
-A lot of it worked: 
+A lot of it worked:
 
 Storage, Management, Authentication
 
 ---
 
-Virtualization? 
+Virtualization?
 
 Way too janky, so I punted...
 
@@ -125,6 +150,156 @@ networking
 
 ---
 
+... but ...<br /><br />I only wanted VM security ...
+
+---
+
+![picket fence](picket_fence.jpg)
+
+---
+
+## Container Isolation
+
+* namespaces
+* SECCOMP
+* SE-Linux
+* bubblewrap
+* Clair & OpenSCAP
+
+---
+
+## Kernel exploits
+
+![docker vs vms diagram](docker_vs_vm.jpg)
+
+---
+
+![meltdown and spectre](meltdown.png)
+
+---
+
+### Resource usage
+
+![suggestion box](suggestions.png)
+
+---
+
+![postgresql logo](postgresql.png)
+
+---
+
+![kubevirt logo](kubevirt.png)
+
+---
+
+![containerized CI/CD workflow](cicd_kubernetes.jpg)
+
+---
+
+![katacontainers logo](kata.svg)
+
+---
+
+![clear containers and hyper-v](clear_hyper.png)
+
+---
+
+## Minimal VM wrapper
+
+* Linux-based
+* contains microkernel and not much else<br />
+  https://github.com/kata-containers/osbuilder
+* sub-second startup
+
+---
+
+![cri-o logo](cri-o.png)
+
+---
+
+## CRI: Container Runtime Interface
+
+![CRI arch diagram](cri-diagram.png)
+
+---
+
+## How Kata works
+
+1. Kubernetes calls CRI
+2. CRI calls CRI-O
+3. CRI-O calls cc-runtime
+4. cc-runtime starts mini-VM
+5. mini-VM runs Kube pod
+
+---
+
+## Startup Times
+
+* Container: 5ms
+* Katacontainer: 100ms
+* KubeVirt VM: 30s
+
+(times are for example only)
+
+---
+
+## Trusted/Untrusted
+
+```
+annotations:
+  io.kubernetes.cri-o.\
+    TrustedSandbox: “false”
+```
+
+---
+
+## Limitations
+
+* pre-alpha
+* Linux guest only
+* no special devices
+* can't support VM apps
+
+---
+
+#### Demo
+
+---
+
+## Other Technologies
+
+* Virtlet
+* Rkt VMs
+* RancherVM (RIP)
+* Service Broker
+
+---
+
+## SuperDuper-<br>HyperConvergance
+
+* Use Kubernetes to manage VMs
+* Give VMs access to Kube resources
+* Add VM security to containers
+* Run VMs on Containers on VMs!
+
+---
+
+background-image: url(chocolate-peanut-butter-cup-smoothie4.jpg)
+
+#### Two Great Tastes<br />Taste Great Together
+
+---
+
+## links
+
+* www.kubervirt.io
+* www.katacontainers.io
+* www.cri-o.io
+* \#virtualization on Kube Slack<br />
+  slack.k8s.io
+
+---
+
 # ¿questions?
 
 .left-column-narrow[
@@ -139,7 +314,6 @@ Red Hat:
 
 .right-column-wide[
 @fuzzychef<br />
-www.databasesoup.com<br />
 jberkus.github.io
 
 @jasonbrooks
